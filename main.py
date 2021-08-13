@@ -292,7 +292,6 @@ async def on_command_error(ctx, error):  # 예외 처리 싫으시면 pass 치�
     elif isinstance(error, commands.CommandNotFound):
         embed = discord.Embed(colour=red)
         embed.add_field(name='<:error:875606527740870717>존재하지 않는 명령어!', value="존재하지 않는 명령어입니다!")
-        ordapp.com/avatars/806729801086926869/6d3c0df30e9a81cddf3622e630978b0c.png")
         await ctx.send(embed=embed)
 
     elif isinstance(error, commands.CommandOnCooldown):
