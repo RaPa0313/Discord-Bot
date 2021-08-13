@@ -1,6 +1,7 @@
 import discord
 import pytz
 import datetime
+import os
 
 from discord import colour as c
 from discord.ext import commands
@@ -12,8 +13,6 @@ intents = discord.Intents.all()
 dt_mtn = datetime.datetime.now(tz=pytz.timezone('Asia/Seoul'))
 
 bot = commands.Bot(command_prefix='!', intents=intents)
-
-token = 'ODc0ODExNDcyNjM3NzI2NzMw.YRMZrA.6hyY2j4yYd70ZjSSOWs3hyZliDc'
 
 # ---------- 색상표 시작 ----------
 color_default = 0
@@ -412,5 +411,5 @@ async def 맵(ctx, *, args):
                                                                                             await ctx.send(
                                                                                                 embed=map_list)
 
-
-bot.run(token)
+acces_token = os.environ["BOT_TOKEN"]
+bot.run(acces_token)
