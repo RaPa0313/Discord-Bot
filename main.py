@@ -322,5 +322,5 @@ async def on_command_error(ctx, error):  # 예외 처리 싫으시면 pass 치�
         await ctx.send(embed=embed)
 
 
-#acces_token = os.environ["BOT_TOKEN"]
-bot.run('ODc0ODExNDcyNjM3NzI2NzMw.YRMZrA.34pTKWEuxfFuGak1qRIrBniK-cw')
+acces_token = os.environ["BOT_TOKEN"]
+bot.run(acces_token)
