@@ -78,7 +78,10 @@ async def 핑(ctx):
 async def 명령어(ctx):
     embed = discord.Embed(colour=purple, title='📃 Reserver 명령어 리스트')
     embed.add_field(name='🗺 **맵 정보**', value='`!맵 [맵 이름]`')
-    embed.add_field(name='🏹 **탄약 정보**', value='`!탄약 [구경]`')
+    embed.add_field(name='🏹 **탄약 정보 (개발중)**', value='`!탄약 [구경]`')
+    embed.add_field(name='💸 **아이템 시세 (개발중)**', value='`!아이템 [아이템명]`')
+    embed.add_field(name='📊 **환율 계산 (개발중)**', value='`!환율 [금액]`')
+    embed.add_field(name='✔ **접두사 설정 (개발중)**', value='`!접두사 [접두사]`')
     embed.add_field(name='💡 **봇 상태**', value='`!핑`')
     embed.set_footer(text='개발 : DO_S#0313')
     embed.set_thumbnail(
