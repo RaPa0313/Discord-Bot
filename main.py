@@ -282,22 +282,17 @@ async def on_command_error(ctx, error):  # 예외 처리 싫으시면 pass 치�
     if isinstance(error, commands.MissingRequiredArgument):
         embed = discord.Embed(colour=red)
         embed.add_field(name='<:error:875606527740870717>에러! 필요한 값이 없음', value="필요한 인자가 없습니다!")  # 이거 좀 수정해주셈
-        embed.set_footer(text='Stella Bot#9903',
-                         icon_url="https://cdn.discordapp.com/avatars/806729801086926869/6d3c0df30e9a81cddf3622e630978b0c.png")
         await ctx.send(embed=embed)
 
     elif isinstance(error, commands.BadArgument):
         embed = discord.Embed(colour=red)
         embed.add_field(name='<:error:875606527740870717>에러! 잘못된 값', value="인자의 값이 잘못되었습니다!")
-        embed.set_footer(text='Stella Bot#9903',
-                         icon_url="https://cdn.discordapp.com/avatars/806729801086926869/6d3c0df30e9a81cddf3622e630978b0c.png")
         await ctx.send(embed=embed)
 
     elif isinstance(error, commands.CommandNotFound):
         embed = discord.Embed(colour=red)
         embed.add_field(name='<:error:875606527740870717>존재하지 않는 명령어!', value="존재하지 않는 명령어입니다!")
-        embed.set_footer(text='Stella Bot#9903',
-                         icon_url="https://cdn.discordapp.com/avatars/806729801086926869/6d3c0df30e9a81cddf3622e630978b0c.png")
+        ordapp.com/avatars/806729801086926869/6d3c0df30e9a81cddf3622e630978b0c.png")
         await ctx.send(embed=embed)
 
     elif isinstance(error, commands.CommandOnCooldown):
@@ -309,16 +304,12 @@ async def on_command_error(ctx, error):  # 예외 처리 싫으시면 pass 치�
     elif isinstance(error, commands.MissingPermissions):
         embed = discord.Embed(colour=red)
         embed.add_field(name='<:error:875606527740870717>권한 부족!', value="이 명령어를 실행하기에는 권한이 부족합니다!")
-        embed.set_footer(text='Stella Bot#9903',
-                         icon_url="https://cdn.discordapp.com/avatars/806729801086926869/6d3c0df30e9a81cddf3622e630978b0c.png")
         await ctx.send(embed=embed)
 
     else:
         embed = discord.Embed(colour=red)
         embed.add_field(name='<:error:875606527740870717>알 수 없는 에러!',
                         value=f"명령어 오류 발생! 개발자한테 DM ```{str(error)}```")
-        embed.set_footer(text='Stella Bot#9903',
-                         icon_url="https://cdn.discordapp.com/avatars/806729801086926869/6d3c0df30e9a81cddf3622e630978b0c.png")
         await ctx.send(embed=embed)
 
 
