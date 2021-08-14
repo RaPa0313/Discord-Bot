@@ -78,10 +78,7 @@ async def 핑(ctx):
 async def 명령어(ctx):
     embed = discord.Embed(colour=purple, title='📃 Reserver 명령어 리스트')
     embed.add_field(name='🗺 **맵 정보**', value='`!맵 [맵 이름]`')
-    embed.add_field(name='🏹 **탄약 정보 (개발중)**', value='`!탄약 [구경]`')
-    embed.add_field(name='💸 **아이템 시세 (개발중)**', value='`!아이템 [아이템명]`')
-    embed.add_field(name='📊 **환율 계산 (개발중)**', value='`!환율 [금액]`')
-    embed.add_field(name='✔ **접두사 설정 (개발중)**', value='`!접두사 [접두사]`')
+    embed.add_field(name='🏹 **탄약 정보**', value='`!탄약 [구경]`')
     embed.add_field(name='💡 **봇 상태**', value='`!핑`')
     embed.set_footer(text='개발 : DO_S#0313')
     embed.set_thumbnail(
@@ -94,11 +91,11 @@ async def 탄약(ctx, *, args):
     if args == "목록":
         ammo_list = discord.Embed(colour=gold, title="📦 탄약 목록")
         ammo_list.add_field(name="권총 탄약",
-                            value="```7.62x25mm Tokarev, 9x18mm Makarov, 9x19mm Parabellum, 9x21mm Gyurza, .45 ACP```",
+                            value="```7.62x25mm, 9x18mm, 9x19mm, 9x21mm, .45 ACP```",
                             inline=False)
-        ammo_list.add_field(name="PDW탄", value="```4.6x30mm HK, 5.7x28mm FN```", inline=False)
+        ammo_list.add_field(name="PDW탄", value="```4.6x30mm, 5.7x28mm```", inline=False)
         ammo_list.add_field(name="소총탄",
-                            value="```5.45x39mm, 5.56x45mm NATO, .300 Blackout, 7.62x39mm, 7.62x51mm NATO, 7.62x54mmR, .338 Lapua Magnum, 9x39mm, .366 TKM, 12.7x55mm STs-130, 12.7x108mm```",
+                            value="```5.45x39mm, 5.56x45mm, .300, 7.62x39mm, 7.62x51mm, 7.62x54mmR, .338, 9x39mm, .366, 12.7x55mm, 12.7x108mm```",
                             inline=False)
         ammo_list.add_field(name="산탄", value="```12x70mm, 20x70mm, 23x75mm```", inline=False)
         ammo_list.add_field(name="유탄", value="```30x29mm, 40x46 mm```", inline=False)
@@ -106,7 +103,7 @@ async def 탄약(ctx, *, args):
         await ctx.send(embed=ammo_list)
 
     else:
-        if args == "5.56" or args == "5.56x45mm":
+        if args == "5.56x45mm" or args == "5.56x45" or args == "5.56":
             ammo_5_56_45mm = discord.Embed(colour=gold)
             ammo_5_56_45mm.set_author(name="5.56x45mm NATO"
                                       ,
@@ -177,7 +174,7 @@ Pistol:
 M1911A1```""", inline=True)
             await ctx.send(embed=ammo_45)
 
-        elif args == "12.7x55mm":
+        elif args == "12.7x55mm" or args == "12.7x55":
             ammo_12_7_55mm = discord.Embed(colour=gold)
             ammo_12_7_55mm.set_author(name="12.7x55mm Sts-130"
                                  ,
@@ -196,7 +193,7 @@ Assault rifles:
 
             await ctx.send(embed=ammo_12_7_55mm)
 
-        elif args == "12.7x108mm":
+        elif args == "12.7x108mm" or args == "12.7x108":
             ammo_12_7_108mm = discord.Embed(colour=gold)
             ammo_12_7_108mm.set_author(name="12.7x108mm"
                                       ,
@@ -244,7 +241,7 @@ HMGs:
 
             await ctx.send(embed=ammo_12_7_55mm)
 
-        elif args == "12x70mm":
+        elif args == "12x70mm" or args == "12x70" or args == "12ga":
             ammo_12_70mm = discord.Embed(colour=gold)
             ammo_12_70mm.set_author(name="12x70mm"
                                     ,
@@ -281,6 +278,496 @@ Shotguns:
     MP-153
     Saiga-12```""")
             await ctx.send(embed=ammo_12_70mm)
+
+        elif args == "20x70mm" or args == "20x70" or args == "20ga":
+            ammo_20_70mm = discord.Embed(colour=gold)
+            ammo_20_70mm.set_author(name="20x70mm"
+                                    ,
+                                    icon_url='https://images-ext-1.discordapp.net/external/pHC5gleSVGgzmmoeNkxGnrZf-5_l_QQaTBrsO_q4OkA/%3Fversion%3Dd18fedabeec0b5d9a1282686a1e399df/https/gamepedia.cursecdn.com/escapefromtarkov_gamepedia/6/63/20-70.gif')
+            ammo_20_70mm.add_field(name="모든 방어구 클래스에 약간 효과적", value="5.6mm Buckshot, 6.2mm Buckshot, 7.5mm Buckshot, 7.3mm Buckshot", inline=False)
+            ammo_20_70mm.add_field(name="방어구를 입지 않은 적에게 매우 효과적", value="Devastator Slug", inline=False)
+            ammo_20_70mm.add_field(name="1 클래스 이하의 방어구에 매우 효과적", value="""Slug "Poleva-3" """, inline=False)
+            ammo_20_70mm.add_field(name="1~2 클래스 이하의 방어구에 매우 효과적", value="Star Slug, Slug Poleva-6u", inline=False)
+            ammo_20_70mm.add_field(name="상세 종류", value="""```
+20/70 5.6mm Buckshot
+20/70 6.2mm Buckshot
+20/70 7.3mm Buckshot
+20x70 7.5mm Buckshot
+20/70 Devastator Slug
+20/70 Slug "Poleva-3"
+20/70 Slug Poleva-6u
+20/70 Star Slug```""", inline=True)
+            ammo_20_70mm.add_field(name="사용 무기", value="""```
+Shotguns:
+    TOZ-106```""")
+
+            await ctx.send(embed=ammo_20_70mm)
+
+        elif args == "4.6x30mm" or args == "4.6x30" or args == "4.6":
+            ammo_4_6_30mm = discord.Embed(colour=gold)
+            ammo_4_6_30mm.set_author(name="4.6x30mm HK"
+                                     ,
+                                     icon_url='https://images-ext-2.discordapp.net/external/ivuFTCkuiwFhcD382JniFg1hYG5JEbLzskBV3Wjs6Tk/%3Fversion%3Dcedf8d2b62f583c0bc9622c05044f2ad/https/gamepedia.cursecdn.com/escapefromtarkov_gamepedia/0/05/4.6x30.gif')
+            ammo_4_6_30mm.add_field(name="최고 성능", value="AP SX, FMJ SX", inline=False)
+            ammo_4_6_30mm.add_field(name="방어구를 입지 않은 적에게 효과적", value="Action SX", inline=False)
+            ammo_4_6_30mm.add_field(name="5-6 클래스 방어구에 효과적", value="AP SX", inline=False)
+            ammo_4_6_30mm.add_field(name="상세 종류", value="""```
+4.6x30mm Action SX
+4.6x30mm AP SX
+4.6x30mm FMJ SX
+4.6x30mm Subsonic SX```""", inline=True)
+            ammo_4_6_30mm.add_field(name="사용 무기", value="""```
+SMGs:
+    MP7A1
+    MP7A2```""", inline=True)
+
+            await ctx.send(embed=ammo_4_6_30mm)
+
+        elif args == "5.45x39mm" or args == "5.45x39" or args == "5.45":
+            ammo_5_45_39mm = discord.Embed(colour=gold)
+            ammo_5_45_39mm.set_author(name='5.45x39mm'
+                                      ,
+                                      icon_url='https://images-ext-1.discordapp.net/external/seyt563VfxPAQ4VpmQf7ZZeS_MA3XhjMY2bJXFAtKZA/%3Fversion%3D085f3db32282652bede65cbc1c594edc/https/gamepedia.cursecdn.com/escapefromtarkov_gamepedia/3/34/5.45x39.gif')
+            ammo_5_45_39mm.add_field(name="최고 성능", value="7N39, BS", inline=False)
+            ammo_5_45_39mm.add_field(name="가성비", value="BT", inline=False)
+            ammo_5_45_39mm.add_field(name="5-6 클래스 방어구에 효과적", value="7N39, BS", inline=False)
+            ammo_5_45_39mm.add_field(name="4 클래스 이하의 방어구에 효과적", value="BT", inline=False)
+            ammo_5_45_39mm.add_field(name="우호도 레벨 1 상인에게서 구매 가능", value="BT, BP, PS, FMJ, T, PRS", inline=False)
+            ammo_5_45_39mm.add_field(name="상세 종류", value="""```
+5.45x39 mm 7N39 "Igolnik"
+5.45x39 mm BP
+5.45x39 mm BS
+5.45x39 mm BT
+5.45x39 mm FMJ
+5.45x39 mm HP
+5.45x39 mm PP
+5.45x39 mm PRS
+5.45x39 mm PS
+5.45x39 mm SP
+5.45x39 mm T
+5.45x39 mm US```""", inline=True)
+            ammo_5_45_39mm.add_field(name="사용 무기", value="""```
+Assault rifles:
+    AK-105
+    AK-74
+    AK-74M
+    AK-74N
+    AKS-74
+    AKS-74N
+    AKS-74U
+    AKS-74UB
+    AKS-74UN```""", inline=True)
+
+            await ctx.send(embed=ammo_5_45_39mm)
+
+        elif args == "5.7x28mm" or args == "5.7x28" or args == "5.7":
+            ammo_5_7_28mm = discord.Embed(colour=gold)
+            ammo_5_7_28mm.set_author(name="5.7x28mm FN"
+                                     ,
+                                     icon_url='https://images-ext-2.discordapp.net/external/YB1FVk73crSmYllbAq9mLsdvJjNCYKAVoxTd8c4qfW8/%3Fversion%3Db091b9e424fb51a4518088d3f4169f09/https/gamepedia.cursecdn.com/escapefromtarkov_gamepedia/9/97/5.7x28.gif')
+            ammo_5_7_28mm.add_field(name="최고 성능", value="SS190, SB193", inline=False)
+            ammo_5_7_28mm.add_field(name="방어구를 입지 않은 적에게 효과적", value="R37.F", inline=False)
+            ammo_5_7_28mm.add_field(name="3~4 클래스 방어구에 효과적", value="SS190, SB193", inline=False)
+            ammo_5_7_28mm.add_field(name="상세 종류", value="""```
+5.7x28 mm L191
+5.7x28 mm R37.F
+5.7x28 mm R37.X
+5.7x28 mm SB193
+5.7x28 mm SS190
+5.7x28 mm SS197SR
+5.7x28 mm SS198LF```""", inline=True)
+            ammo_5_7_28mm.add_field(name="사용 무기" , value="""```
+Pistols:
+    FN 5-7
+
+SMGs:
+    P90```""", inline=True)
+
+            await ctx.send(embed=ammo_5_7_28mm)
+
+        elif args == "7.62x25mm" or args == "7.62x25":
+            ammo_7_62_25mm = discord.Embed(colour=gold)
+            ammo_7_62_25mm.set_author(name="7.62x25mm Tokarev"
+                                      ,
+                                      icon_url='https://images-ext-2.discordapp.net/external/gkJeiqhRjMhg_Jz33Rsk9CkuU_nSzE4yZFhq37mja_g/%3Fversion%3D4949252643f6a38658e6bc8308e8930c/https/gamepedia.cursecdn.com/escapefromtarkov_gamepedia/f/ff/TT_7.62x25.gif')
+            ammo_7_62_25mm.add_field(name="최고성능", value="Pst gzh, LRNPC", inline=False)
+            ammo_7_62_25mm.add_field(name="가성비", value="Pst gzh, LRNPC", inline=False)
+            ammo_7_62_25mm.add_field(name="우호도 레벨 1 상인에게서 구매 가능", value="AKBS, FMJ43, LRN", inline=False)
+            ammo_7_62_25mm.add_field(name="방어구를 입지 않은 적에게 효과적", value="LRNPC", inline=False)
+            ammo_7_62_25mm.add_field(name="1~3 클래스 방어구에 효과적", value="Pst gzh", inline=False)
+            ammo_7_62_25mm.add_field(name="상세 종류", value="""```
+7.62x25mm TT AKBS
+7.62x25mm TT FMJ43
+7.62x25mm TT LRN
+7.62x25mm TT LRNPC
+7.62x25mm TT P gl
+7.62x25mm TT Pst gzh
+7.62x25mm TT PT gzh```""", inline=True)
+            ammo_7_62_25mm.add_field(name="사용 무기", value="""```
+Pistols:
+    TT pistol
+    TT pistol (gold)
+
+SMGs:
+    PPSH-41```""", inline=True)
+
+            await ctx.send(embed=ammo_7_62_25mm)
+
+        elif args == "7.62x39mm" or args == "7.62x39":
+            ammo_7_62_39mm = discord.Embed(colour=gold)
+            ammo_7_62_39mm.set_author(name="7.62x39mm"
+                                      ,
+                                      icon_url='https://images-ext-2.discordapp.net/external/XqtzEILLOWRw-3JCWI1tkxjzVOnt-GpRJ6Jxlkjh2bg/%3Fversion%3D1be7daae85ee44fd47169c0be1896a59/https/gamepedia.cursecdn.com/escapefromtarkov_gamepedia/9/9f/7.62x39.gif')
+            ammo_7_62_39mm.add_field(name="최고 성능", value="BP", inline=False)
+            ammo_7_62_39mm.add_field(name="가성비", value="PS", inline=False)
+            ammo_7_62_39mm.add_field(name="4~5 클래스 방어구에 효과적", value="BP", inline=False)
+            ammo_7_62_39mm.add_field(name="3~4 클래스 이하의 방어구에 효과적", value="PS", inline=False)
+            ammo_7_62_39mm.add_field(name="상세 종류", value="""```
+7.62x39 mm BP
+7.62x39 mm HP
+7.62x39 mm PS
+7.62x39 mm T45M
+7.62x39 mm US```""", inline=True)
+            ammo_7_62_39mm.add_field(name="사용 무기", value="""```
+Assault carbines:
+    OP-SKS
+    SKS
+
+Assault rifles:
+    AK-103
+    AK-104
+    AKM
+    AKMN
+    AKMS
+    AKMSN
+    Vepr KM/VPO-136```""", inline=True)
+
+            await ctx.send(embed=ammo_7_62_39mm)
+
+        elif args == "7.62x51mm" or args == "7.62x51":
+            ammo_7_62_51mm = discord.Embed(colour=gold)
+            ammo_7_62_51mm.set_author(name="7.62x51mm NATO"
+                                      ,
+                                      icon_url='https://images-ext-1.discordapp.net/external/RAt3SD7oIflrL9gQ6h0eCvpkPOPpRHTDEL70FMXSpjM/%3Fversion%3D7412bd55a2ee6eff524c35b81387cea5/https/gamepedia.cursecdn.com/escapefromtarkov_gamepedia/1/1f/7.62x51_NATO.gif')
+            ammo_7_62_51mm.add_field(name="최고 성능", value="M61, M62, M993", inline=False)
+            ammo_7_62_51mm.add_field(name="가성비", value="M80", inline=False)
+            ammo_7_62_51mm.add_field(name="우호도 레벨 1 상인에게서 구매 가능", value="TPZ SP", inline=False)
+            ammo_7_62_51mm.add_field(name="방어구를 입지 않은 적에게 매우 효과적", value="Ultra Nosler", inline=False)
+            ammo_7_62_51mm.add_field(name="4~5 클래스 이하의 방어구에 효과적", value="M80, TPZ SP", inline=False)
+            ammo_7_62_51mm.add_field(name="5~6 클래스 방어구에 효과적", value="M61, M62", inline=False)
+            ammo_7_62_51mm.add_field(name="6 클래스 방어구 완전 관통", value="M61, M993", inline=False)
+            ammo_7_62_51mm.add_field(name="상세 종류", value="""```
+7.62x51 mm BPZ FMJ
+7.62x51 mm M61
+7.62x51 mm M62
+7.62x51 mm M80
+7.62x51 mm M993
+7.62x51 mm TPZ SP
+7.62x51 mm Ultra Nosler```""", inline=True)
+            ammo_7_62_51mm.add_field(name="사용 무기", value="""```
+Assault carbines:
+    Vepr Hunter/VPO-101
+
+Assault rifles:
+    SA-58
+    DT MDR .308
+
+DMRs:
+    M1A
+    RSASS
+    SR-25
+
+Sniper rifles:
+    DVL-10
+    M700
+    T-5000```""", inline=True)
+
+            await ctx.send(embed=ammo_7_62_51mm)
+
+        elif args == "7.62x54mmR" or args == "7.62x54R" or args == "7.62x54":
+            ammo_7_62_54mm = discord.Embed(colour=gold)
+            ammo_7_62_54mm.set_author(name="7.62x54mmR"
+                                      ,
+                                      icon_url='https://images-ext-1.discordapp.net/external/QTomJi-VZpc32_hnVgtSactcKunPxQpsngYYV65gHcw/%3Fversion%3D54cf97e9a230c556df82fd0201cbabcb/https/gamepedia.cursecdn.com/escapefromtarkov_gamepedia/5/59/7.62x54R.gif')
+            ammo_7_62_54mm.add_field(name="최고 성능", value="7N37, SNB, 7N1", inline=False)
+            ammo_7_62_54mm.add_field(name="가성비", value="LPS Gzh", inline=False)
+            ammo_7_62_54mm.add_field(name="우호도 레벨 1 상인에게서 구매 가능", value="LPS Gzh", inline=False)
+            ammo_7_62_54mm.add_field(name="6 클래스에까지 효과 있음, 가장 데미지 높음", value="7N1", inline=False)
+            ammo_7_62_54mm.add_field(name="6 클래스 방어구 완전 관통", value="7N37, SNB, 7BT1", inline=False)
+            ammo_7_62_54mm.add_field(name="상세 종류", value="""```
+7.62x54R 7BT1
+7.62x54R 7N1 Sniper cartridge
+7.62x54R 7N37
+7.62x54R LPS Gzh
+7.62x54R SNB
+7.62x54R T-46M```""", inline=True)
+            ammo_7_62_54mm.add_field(name="사용 무기", value="""```
+DMRs:
+    SVDS
+
+Sniper rifles:
+    Mosin
+    Mosin Inf.
+    SV-98```""", inline=True)
+
+            await ctx.send(embed=ammo_7_62_54mm)
+
+        elif args == "7.62":
+            ammo_7_62_25mm = discord.Embed(colour=gold)
+            ammo_7_62_25mm.set_author(name="7.62x25mm Tokarev"
+                                      ,
+                                      icon_url='https://images-ext-2.discordapp.net/external/gkJeiqhRjMhg_Jz33Rsk9CkuU_nSzE4yZFhq37mja_g/%3Fversion%3D4949252643f6a38658e6bc8308e8930c/https/gamepedia.cursecdn.com/escapefromtarkov_gamepedia/f/ff/TT_7.62x25.gif')
+            ammo_7_62_25mm.add_field(name="최고성능", value="Pst gzh, LRNPC", inline=False)
+            ammo_7_62_25mm.add_field(name="가성비", value="Pst gzh, LRNPC", inline=False)
+            ammo_7_62_25mm.add_field(name="우호도 레벨 1 상인에게서 구매 가능", value="AKBS, FMJ43, LRN", inline=False)
+            ammo_7_62_25mm.add_field(name="방어구를 입지 않은 적에게 효과적", value="LRNPC", inline=False)
+            ammo_7_62_25mm.add_field(name="1~3 클래스 방어구에 효과적", value="Pst gzh", inline=False)
+            ammo_7_62_25mm.add_field(name="상세 종류", value="""```
+7.62x25mm TT AKBS
+7.62x25mm TT FMJ43
+7.62x25mm TT LRN
+7.62x25mm TT LRNPC
+7.62x25mm TT P gl
+7.62x25mm TT Pst gzh
+7.62x25mm TT PT gzh```""", inline=True)
+            ammo_7_62_25mm.add_field(name="사용 무기", value="""```
+Pistols:
+    TT pistol
+    TT pistol (gold)
+
+SMGs:
+    PPSH-41```""", inline=True)
+
+            ammo_7_62_39mm = discord.Embed(colour=gold)
+            ammo_7_62_39mm.set_author(name="7.62x39mm"
+                                      ,
+                                      icon_url='https://images-ext-2.discordapp.net/external/XqtzEILLOWRw-3JCWI1tkxjzVOnt-GpRJ6Jxlkjh2bg/%3Fversion%3D1be7daae85ee44fd47169c0be1896a59/https/gamepedia.cursecdn.com/escapefromtarkov_gamepedia/9/9f/7.62x39.gif')
+            ammo_7_62_39mm.add_field(name="최고 성능", value="BP", inline=False)
+            ammo_7_62_39mm.add_field(name="가성비", value="PS", inline=False)
+            ammo_7_62_39mm.add_field(name="4~5 클래스 방어구에 효과적", value="BP", inline=False)
+            ammo_7_62_39mm.add_field(name="3~4 클래스 이하의 방어구에 효과적", value="PS", inline=False)
+            ammo_7_62_39mm.add_field(name="상세 종류", value="""```
+7.62x39 mm BP
+7.62x39 mm HP
+7.62x39 mm PS
+7.62x39 mm T45M
+7.62x39 mm US```""", inline=True)
+            ammo_7_62_39mm.add_field(name="사용 무기", value="""```
+Assault carbines:
+    OP-SKS
+    SKS
+
+Assault rifles:
+    AK-103
+    AK-104
+    AKM
+    AKMN
+    AKMS
+    AKMSN
+    Vepr KM/VPO-136```""", inline=True)
+
+            ammo_7_62_51mm = discord.Embed(colour=gold)
+            ammo_7_62_51mm.set_author(name="7.62x51mm NATO"
+                                      ,
+                                      icon_url='https://images-ext-1.discordapp.net/external/RAt3SD7oIflrL9gQ6h0eCvpkPOPpRHTDEL70FMXSpjM/%3Fversion%3D7412bd55a2ee6eff524c35b81387cea5/https/gamepedia.cursecdn.com/escapefromtarkov_gamepedia/1/1f/7.62x51_NATO.gif')
+            ammo_7_62_51mm.add_field(name="최고 성능", value="M61, M62, M993", inline=False)
+            ammo_7_62_51mm.add_field(name="가성비", value="M80", inline=False)
+            ammo_7_62_51mm.add_field(name="우호도 레벨 1 상인에게서 구매 가능", value="TPZ SP", inline=False)
+            ammo_7_62_51mm.add_field(name="방어구를 입지 않은 적에게 매우 효과적", value="Ultra Nosler", inline=False)
+            ammo_7_62_51mm.add_field(name="4~5 클래스 이하의 방어구에 효과적", value="M80, TPZ SP", inline=False)
+            ammo_7_62_51mm.add_field(name="5~6 클래스 방어구에 효과적", value="M61, M62", inline=False)
+            ammo_7_62_51mm.add_field(name="6 클래스 방어구 완전 관통", value="M61, M993", inline=False)
+            ammo_7_62_51mm.add_field(name="상세 종류", value="""```
+7.62x51 mm BPZ FMJ
+7.62x51 mm M61
+7.62x51 mm M62
+7.62x51 mm M80
+7.62x51 mm M993
+7.62x51 mm TPZ SP
+7.62x51 mm Ultra Nosler```""", inline=True)
+            ammo_7_62_51mm.add_field(name="사용 무기", value="""```
+Assault carbines:
+    Vepr Hunter/VPO-101
+
+Assault rifles:
+    SA-58
+    DT MDR .308
+
+DMRs:
+    M1A
+    RSASS
+    SR-25
+
+Sniper rifles:
+    DVL-10
+    M700
+    T-5000```""", inline=True)
+
+            ammo_7_62_54mm = discord.Embed(colour=gold)
+            ammo_7_62_54mm.set_author(name="7.62x54mmR"
+                                      ,
+                                      icon_url='https://images-ext-1.discordapp.net/external/QTomJi-VZpc32_hnVgtSactcKunPxQpsngYYV65gHcw/%3Fversion%3D54cf97e9a230c556df82fd0201cbabcb/https/gamepedia.cursecdn.com/escapefromtarkov_gamepedia/5/59/7.62x54R.gif')
+            ammo_7_62_54mm.add_field(name="최고 성능", value="7N37, SNB, 7N1", inline=False)
+            ammo_7_62_54mm.add_field(name="가성비", value="LPS Gzh", inline=False)
+            ammo_7_62_54mm.add_field(name="우호도 레벨 1 상인에게서 구매 가능", value="LPS Gzh", inline=False)
+            ammo_7_62_54mm.add_field(name="6 클래스에까지 효과 있음, 가장 데미지 높음", value="7N1", inline=False)
+            ammo_7_62_54mm.add_field(name="6 클래스 방어구 완전 관통", value="7N37, SNB, 7BT1", inline=False)
+            ammo_7_62_54mm.add_field(name="상세 종류", value="""```
+7.62x54R 7BT1
+7.62x54R 7N1 Sniper cartridge
+7.62x54R 7N37
+7.62x54R LPS Gzh
+7.62x54R SNB
+7.62x54R T-46M```""", inline=True)
+            ammo_7_62_54mm.add_field(name="사용 무기", value="""```
+DMRs:
+    SVDS
+
+Sniper rifles:
+    Mosin
+    Mosin Inf.
+    SV-98```""", inline=True)
+
+            await ctx.send(embed=ammo_7_62_25mm)
+            await ctx.send(embed=ammo_7_62_39mm)
+            await ctx.send(embed=ammo_7_62_51mm)
+            await ctx.send(embed=ammo_7_62_54mm)
+
+        elif args == "9x18mm" or args == "9x18":
+            ammo_9_18mm = discord.Embed(colour=gold)
+            ammo_9_18mm.set_author(name="9x18mm Makarov"
+                                   ,
+                                   icon_url="https://images-ext-2.discordapp.net/external/EGJOPgryIk3LcWB9JHAkKEFbCVEjMVATnRiUt3KRzPg/%3Fversion%3D99ed656ae09b19dd9783ea85e5645566/https/gamepedia.cursecdn.com/escapefromtarkov_gamepedia/c/c2/9x18_PM.gif")
+            ammo_9_18mm.add_field(name="최고 성능", value="PMM, PBM, SP8 gzh", inline=False)
+            ammo_9_18mm.add_field(name="가성비", value="Pst gzh", inline=False)
+            ammo_9_18mm.add_field(name="방어구를 입지 않은 적에게 효과적", value="SP7, SP8", inline=False)
+            ammo_9_18mm.add_field(name="1 클래스 방어구에 효과적", value="Pst gzh", inline=False)
+            ammo_9_18mm.add_field(name="상세 종류", value="""```
+9x18 mm PM 9 BZT gzh
+9x18 mm PM 9 P gzh
+9x18 mm PM PBM
+9x18 mm PM PMM
+9x18 mm PM PPe gzh
+9x18 mm PM PPT gzh
+9x18 mm PM PRS gs
+9x18 mm PM PS gs PPO
+9x18 mm PM PSO gzh
+9x18 mm PM Pst gzh
+9x18 mm PM PSV
+9x18 PM mm RG028 gzh
+9x18 mm PM SP7 gzh
+9x18 mm PM SP8 gzh```""", inline=True)
+            ammo_9_18mm.add_field(name="사용 무기", value="""```
+Pistols:
+    APB
+    PB pistol
+    PM (t) pistol
+    PM pistol
+
+SMGs:
+    PP-9 "Klin"
+    PP-91 "Kedr"
+    pp-91-01 "Kedr-B"```""", inline=True)
+
+            await ctx.send(embed=ammo_9_18mm)
+
+        elif args == "9x19mm" or args == "9x19":
+            ammo_9_19mm = discord.Embed(colour=gold)
+            ammo_9_19mm.set_author(name="9x19mm Parabellum"
+                                   ,
+                                   icon_url='https://images-ext-2.discordapp.net/external/litvvTzPGp_oyHBMDoaZWPoOCit-5PlnCN8p9nOg-Ws/%3Fversion%3D1937b477b094f3c53ff668cc813d1a63/https/gamepedia.cursecdn.com/escapefromtarkov_gamepedia/d/db/9x19_para.gif')
+            ammo_9_19mm.add_field(name="최고 성능", value="7N31, AP 6.3, Luger CCI, RIP, QuakeMaker", inline=False)
+            ammo_9_19mm.add_field(name="가성비", value="Pst gzh", inline=False)
+            ammo_9_19mm.add_field(name="우호도 레벨 1 상인에게서 구매 가능", value="PSO gzh, Pst gzh", inline=False)
+            ammo_9_19mm.add_field(name="방어구를 입지 않은 적에게 매우 효과적", value="RIP", inline=False)
+            ammo_9_19mm.add_field(name="1 클래스 이하의 방어구에 매우 효과적", value="QuakeMaker", inline=False)
+            ammo_9_19mm.add_field(name="1~2 클래스 방어구에 효과적", value="Luger CCI, Pst gzh", inline=False)
+            ammo_9_19mm.add_field(name="2~3 클래스 방어구에 효과적", value="AP 6.3", inline=False)
+            ammo_9_19mm.add_field(name="4 클래스 방어구에까지 효과 있음", value="7N31", inline=False)
+            ammo_9_19mm.add_field(name="상세 종류", value="""```
+9x19 mm 7N31
+9x19 mm AP 6.3
+9x19 mm Green Tracer
+9x19 mm Luger CCI
+9x19 mm PSO gzh
+9x19 mm Pst gzh
+9x19 mm QuakeMaker
+9x19 mm RIP```""", inline=True)
+            ammo_9_19mm.add_field(name="사용 무기", value="""```
+Pistols:
+    GLOCK17
+    GLOCK18C
+    M9A3
+    MP-443 "Grach"
+    P226R
+
+SMGs:
+    MP5
+    MP5K-N
+    MPX
+    PP-19-01 Vityaz-SN
+    Saiga-9
+    MP9
+    MP9-N```""", inline=True)
+            await ctx.send(embed=ammo_9_19mm)
+
+        elif args == "9x21mm" or args == "9x21":
+            ammo_9_21mm = discord.Embed(colour=gold)
+            ammo_9_21mm.set_author(name="9x21mm Gyurza"
+                                   ,
+                                   icon_url='https://images-ext-1.discordapp.net/external/jGPMFRvzGZ8355kXvGmuEHabKud-Ho0mL92X-VZMxXA/%3Fversion%3De98e984060a4661f83efd39ec603425e/https/gamepedia.cursecdn.com/escapefromtarkov_gamepedia/5/53/9x21_gyurza.gif')
+            ammo_9_21mm.add_field(name="최고 성능", value="SP13", inline=False)
+            ammo_9_21mm.add_field(name="가성비", value="SP11", inline=False)
+            ammo_9_21mm.add_field(name="방어구를 입지 않은 적에게 효과적", value="SP12", inline=False)
+            ammo_9_21mm.add_field(name="2~4 클래스 방어구에 효과적", value="SP13, SP10", inline=False)
+            ammo_9_21mm.add_field(name="상세 종류", value="""```
+9x21 mm SP10
+9x21 mm SP11
+9x21 mm SP12
+9x21 mm SP13```""", inline=True)
+            ammo_9_21mm.add_field(name="사용 무기", value="""```
+Pistols:
+    SR-1MP Gyurza```""", inline=True)
+
+            await ctx.send(embed=ammo_9_21mm)
+
+        elif args == "9x39mm" or args == "9x39":
+            ammo_9_39mm = discord.Embed(colour=gold)
+            ammo_9_39mm.set_author(name=""
+                                   ,
+                                   icon_url='https://images-ext-1.discordapp.net/external/feaZCL4bQKZ4Fdyo3vimFuUplB4gYQJKdwZ32GAdxlk/%3Fversion%3D75c3300cd1dcff5977fd9a4f4903f7ff/https/gamepedia.cursecdn.com/escapefromtarkov_gamepedia/2/29/9x39.gif')
+            ammo_9_39mm.add_field(name="최고 성능", value="7N12 BP, 7N9 SPP, SP-6", inline=False)
+            ammo_9_39mm.add_field(name="가성비", value="SP-5, SP-6", inline=False)
+            ammo_9_39mm.add_field(name="4~6 클래스 방어구에 매우 효과적", value="7N12 BP", inline=False)
+            ammo_9_39mm.add_field(name="6 클래스 방어구까지 효과적, 5 클래스 이하의 방어구에 매우 효과적", value="7N9 SPP, SP-6", inline=False)
+            ammo_9_39mm.add_field(name="상세 종류", value="""```
+9x39 mm 7N9 SPP
+9x39 mm 7N12 BP
+9x39 mm SP-5
+9x39 mm SP-6```""", inline=True)
+            ammo_9_39mm.add_field(name="사용 무기", value="""```
+Assault carbines:
+    AS VAL
+
+DMRs:
+    VSS Vintorez```""", inline=True)
+
+            await ctx.send(embed=ammo_9_39mm)
+
+        else:
+            ammo_list = discord.Embed(colour=gold, title="📦 탄약 목록")
+            ammo_list.add_field(name="권총 탄약",
+                                value="```7.62x25mm, 9x18mm, 9x19mm, 9x21mm, .45 ACP```",
+                                inline=False)
+            ammo_list.add_field(name="PDW탄", value="```4.6x30mm, 5.7x28mm```", inline=False)
+            ammo_list.add_field(name="소총탄",
+                                value="```5.45x39mm, 5.56x45mm, .300, 7.62x39mm, 7.62x51mm, 7.62x54mmR, .338, 9x39mm, .366, 12.7x55mm, 12.7x108mm```",
+                                inline=False)
+            ammo_list.add_field(name="산탄", value="```12x70mm, 20x70mm, 23x75mm```", inline=False)
+            ammo_list.add_field(name="유탄", value="```30x29mm, 40x46 mm```", inline=False)
+
+            await ctx.send('❌ **존재 하지 않는 탄약 이름입니다!** (아래의 탄약 목록을 확인해주세요)')
+            await ctx.send(embed=ammo_list)
 
 
 @bot.command()
@@ -388,17 +875,7 @@ async def 맵(ctx, *, args):
 
 @bot.event
 async def on_command_error(ctx, error):  # 예외 처리 싫으시면 pass 치시던가요
-    if isinstance(error, commands.MissingRequiredArgument):
-        embed = discord.Embed(colour=red)
-        embed.add_field(name='<:error:875606527740870717>에러! 필요한 값이 없음', value="필요한 인자가 없습니다!")  # 이거 좀 수정해주셈
-        await ctx.send(embed=embed)
-
-    elif isinstance(error, commands.BadArgument):
-        embed = discord.Embed(colour=red)
-        embed.add_field(name='<:error:875606527740870717>에러! 잘못된 값', value="인자의 값이 잘못되었습니다!")
-        await ctx.send(embed=embed)
-
-    elif isinstance(error, commands.CommandOnCooldown):
+    if isinstance(error, commands.CommandOnCooldown):
         embed = discord.Embed(colour=red)
         a = error.retry_after
         after = round(a, 2)
@@ -407,12 +884,6 @@ async def on_command_error(ctx, error):  # 예외 처리 싫으시면 pass 치�
     elif isinstance(error, commands.MissingPermissions):
         embed = discord.Embed(colour=red)
         embed.add_field(name='<:error:875606527740870717>권한 부족!', value="이 명령어를 실행하기에는 권한이 부족합니다!")
-        await ctx.send(embed=embed)
-
-    else:
-        embed = discord.Embed(colour=red)
-        embed.add_field(name='<:error:875606527740870717>알 수 없는 에러!',
-                        value=f"명령어 오류 발생! 개발자한테 DM ```{str(error)}```")
         await ctx.send(embed=embed)
 
 
